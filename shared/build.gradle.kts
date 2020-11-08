@@ -1,9 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm")
     application
 }
+
 group = "org.itmodreamteam"
 version = "1.0-SNAPSHOT"
 
