@@ -13,9 +13,11 @@ jobs:
           name: app
           path: app/build/libs/*
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: self-hosted
     env:
+      PROFILE: prod
       DB_PASSWORD: uC5c98Ez3i
     steps:
       - uses: actions/checkout@v2
