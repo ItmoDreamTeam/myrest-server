@@ -7,7 +7,7 @@ plugins {
 }
 apply(plugin = "io.spring.dependency-management")
 
-group = "org.itmodreamteam"
+group = "org.itmodreamteam.myrest"
 version = "1.0-SNAPSHOT"
 
 repositories {
