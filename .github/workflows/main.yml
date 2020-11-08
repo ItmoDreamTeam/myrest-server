@@ -8,3 +8,21 @@ jobs:
         with:
           java-version: 11
       - run: ./gradlew build -i
+      - uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: app/build/libs/*
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    env:
+      DB_PASSWORD: uC5c98Ez3i
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: app
+          path: app/build/libs/
+      - run: |
+          cd app
+          docker-compose -p myrest up -d --build
