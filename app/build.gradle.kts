@@ -3,7 +3,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.4.10"
     application
+    id("org.springframework.boot") version "2.3.5.RELEASE"
 }
+apply(plugin = "io.spring.dependency-management")
+
 group = "org.itmodreamteam"
 version = "1.0-SNAPSHOT"
 
@@ -11,11 +14,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation(kotlin("test-junit"))
 }
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "11"
 }
 application {
-    mainClassName = "MainKt"
+    mainClassName = "org.itmodreamteam.myrest.server.MainKt"
 }
