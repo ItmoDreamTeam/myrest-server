@@ -29,6 +29,7 @@ jobs:
           cd app
           docker-compose -p myrest up -d --build
   publish:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     env:
